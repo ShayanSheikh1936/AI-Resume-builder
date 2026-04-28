@@ -14,7 +14,7 @@ const readStoredState = () => {
   }
 
   try {
-    const raw = window.localStorage.getItem(STORAGE_KEY)
+    const raw = window.sessionStorage.getItem(STORAGE_KEY)
     if (!raw) {
       return {
         fileName: '',
@@ -37,7 +37,7 @@ export function ResumeProvider({ children }) {
   const [resumeState, setResumeState] = useState(readStoredState)
 
   useEffect(() => {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(resumeState))
+    window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(resumeState))
   }, [resumeState])
 
   const value = useMemo(

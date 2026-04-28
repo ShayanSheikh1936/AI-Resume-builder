@@ -24,7 +24,7 @@ const featureCards = [
 const stats = [
   { value: '4', label: 'Premium pages' },
   { value: '2026', label: 'Role-ready trends' },
-  { value: '0', label: 'Backend required' },
+  { value: '100%', label: 'Hireable Solutions' },
 ]
 
 function LandingPage() {
