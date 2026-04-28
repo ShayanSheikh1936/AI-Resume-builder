@@ -13,6 +13,7 @@ import {
 } from 'lucide-react'
 import ScoreRing from '../components/ScoreRing'
 import SectionHeading from '../components/SectionHeading'
+import VisualCluster from '../components/VisualCluster'
 import { useResume } from '../context/ResumeContext'
 import { scanResumeWithGemini } from '../lib/gemini'
 
@@ -88,6 +89,13 @@ function ScanPage() {
 
       <div className="mt-10 grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
         <div className="space-y-5">
+          <VisualCluster
+            title="Resume intelligence preview"
+            subtitle="Interactive upload visual"
+            chips={['Upload', 'Preview', 'Scanner']}
+            theme="sky"
+            compact
+          />
           <div className="rounded-[28px] border border-white bg-white/90 p-5 shadow-sm">
             <label className="text-sm font-medium text-slate-500">Optimization profile</label>
             <select
@@ -149,7 +157,7 @@ function ScanPage() {
               {!loading && !result && (
                 <div className="rounded-[28px] bg-slate-950 p-6 text-slate-200">
                   <p className="text-sm leading-7">
-                    Upload a file to generate a real Gemini scan report with ATS score, job match, missing keywords, extracted resume text, and layout recommendations.
+                    Upload a file to generate a real time scan report with ATS score, job match, missing keywords, extracted resume text, and layout recommendations.
                   </p>
                 </div>
               )}

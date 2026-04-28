@@ -77,10 +77,58 @@ function AppShell({ children }) {
         </motion.main>
       </AnimatePresence>
 
-      <footer className="relative z-10 border-t border-slate-200/80 bg-white/80">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-8 text-sm text-slate-500 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
-          <p>ElevateAI helps resumes look premium, readable, and role-aligned.</p>
-          <p>Built with React, Tailwind, motion, and Gemini-ready workflows.</p>
+      <footer className="relative z-10 border-t border-slate-200/80 bg-white/85 backdrop-blur-xl">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+          <div className="grid gap-10 md:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr]">
+            <div>
+              <div className="flex items-center gap-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-500 text-white shadow-[0_20px_60px_-20px_rgba(14,165,233,0.8)]">
+                  <Sparkles className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-lg font-semibold tracking-tight text-slate-950">ElevateAI</p>
+                  <p className="text-xs text-slate-500">Premium Tech Recruiter Suite</p>
+                </div>
+              </div>
+              <p className="mt-4 max-w-sm text-sm leading-7 text-slate-500">
+                ElevateAI helps resumes look premium, readable, quantified, and role-aligned with a modern SaaS-style product experience.
+              </p>
+            </div>
+
+            <div>
+              <p className="text-sm font-semibold text-slate-950">Pages</p>
+              <div className="mt-4 flex flex-col gap-3 text-sm text-slate-500">
+                {navItems.map(({ to, label }) => (
+                  <Link key={to} to={to} className="transition hover:text-sky-600">
+                    {label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <p className="text-sm font-semibold text-slate-950">Highlights</p>
+              <div className="mt-4 flex flex-col gap-3 text-sm text-slate-500">
+                <p>ATS scan dashboard</p>
+                <p>AI bullet improvement</p>
+                <p>Role-fit gap analysis</p>
+              </div>
+            </div>
+
+            <div>
+              <p className="text-sm font-semibold text-slate-950">Product</p>
+              <div className="mt-4 flex flex-col gap-3 text-sm text-slate-500">
+                <p>Responsive premium UI</p>
+                <p>Gemini-powered workflows</p>
+                <p>Modern recruiter visuals</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10 flex flex-col gap-3 border-t border-slate-200 pt-6 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
+            <p>Built with React, Tailwind, framer-motion, and Gemini-ready workflows.</p>
+            <p>Designed for candidates, recruiters, and premium resume storytelling.</p>
+          </div>
         </div>
       </footer>
     </div>

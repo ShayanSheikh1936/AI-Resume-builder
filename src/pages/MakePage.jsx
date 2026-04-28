@@ -1,8 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
 import { LoaderCircle, Sparkles } from 'lucide-react'
 import SectionHeading from '../components/SectionHeading'
+import VisualCluster from '../components/VisualCluster'
 import { useResume } from '../context/ResumeContext'
 import { improveBulletWithGemini } from '../lib/gemini'
+import { Link } from 'react-router-dom'
 
 const extractBullets = (resumeText) =>
   resumeText
@@ -49,7 +51,7 @@ function MakePage() {
       <SectionHeading
         eyebrow="The Architect"
         title="Craft a cleaner, sharper resume with AI-assisted bullet writing"
-        description="Edit your resume on a minimalist paper-like canvas and strengthen each bullet point with a floating sparkle action powered by Gemini."
+        description="Edit your resume on a minimalist paper-like canvas and strengthen each bullet point with a floating sparkle action powered by AI."
       />
 
       <div className="mt-10 grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
@@ -63,7 +65,7 @@ function MakePage() {
 
             {bullets.length === 0 && (
               <div className="rounded-[28px] border border-dashed border-sky-200 bg-sky-50 px-5 py-6 text-sm leading-7 text-slate-600">
-                Scan a resume first on `/scan` so Gemini can extract your real resume content and load bullet points here.
+                Scan a resume first on <Link to="/scan" className="underline">Scan Page</Link> so AI can extract your real resume content and load bullet points here.
               </div>
             )}
 
@@ -94,9 +96,16 @@ function MakePage() {
         </div>
 
         <div className="space-y-6">
+          <VisualCluster
+            title="Resume paper preview"
+            subtitle="Interactive editor image"
+            chips={['Paper UI', 'Metrics', 'Rewrite']}
+            theme="violet"
+            compact
+          />
           <div className="rounded-[32px] bg-slate-950 p-6 text-white shadow-[0_30px_80px_-45px_rgba(15,23,42,0.45)]">
             <p className="text-sm uppercase tracking-[0.28em] text-sky-300">AI guidance</p>
-            <h3 className="mt-3 text-2xl font-semibold tracking-tight">Google X-Y-Z formula</h3>
+            <h3 className="mt-3 text-2xl font-semibold tracking-tight">Google X-Y-Z Formula</h3>
             <p className="mt-4 text-sm leading-7 text-slate-300">
               Frame each bullet around what you achieved, how you did it, and the measurable result. The sparkle button rewrites each line toward stronger quantified impact.
             </p>

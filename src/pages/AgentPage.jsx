@@ -9,6 +9,7 @@ import {
   Tooltip,
 } from 'recharts'
 import SectionHeading from '../components/SectionHeading'
+import VisualCluster from '../components/VisualCluster'
 import { useResume } from '../context/ResumeContext'
 import { generateRoleInsights } from '../lib/gemini'
 
@@ -50,12 +51,19 @@ function AgentPage() {
     <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
       <SectionHeading
         eyebrow="The Career Agent"
-        title="Match your resume against target roles and expose 2026 skill gaps"
+        title={`Match your resume against target roles and expose ${new Date().getFullYear()} skill gaps`}
         description="Choose your desired path, connect it to resume text, and generate a personalized summary, missing-skill roadmap, and radar chart for high-priority growth areas."
       />
 
       <div className="mt-10 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="space-y-6 rounded-[32px] border border-white bg-white/90 p-6 shadow-[0_30px_80px_-45px_rgba(15,23,42,0.35)]">
+          <VisualCluster
+            title="Career mapping preview"
+            subtitle="Role-fit visual"
+            chips={['Radar', 'Target', 'Agent']}
+            theme="emerald"
+            compact
+          />
           <div>
             <p className="text-sm uppercase tracking-[0.28em] text-sky-500">Role selector</p>
             <div className="mt-4 flex flex-wrap gap-3">
