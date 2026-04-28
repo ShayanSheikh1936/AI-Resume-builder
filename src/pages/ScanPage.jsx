@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import {
   FileSearch,
@@ -16,6 +16,8 @@ import SectionHeading from '../components/SectionHeading'
 import VisualCluster from '../components/VisualCluster'
 import { useResume } from '../context/ResumeContext'
 import { scanResumeWithGemini } from '../lib/gemini'
+
+
 
 const DetailCard = ({ icon: Icon, title, items, tone = 'light' }) => (
   <div
@@ -42,6 +44,7 @@ const DetailCard = ({ icon: Icon, title, items, tone = 'light' }) => (
 )
 
 function ScanPage() {
+  const SectionFocus = useRef("null")
   const { fileName, resumeText, scanResult, setResumeData } = useResume()
   const [file, setFile] = useState(null)
   const [result, setResult] = useState(scanResult)
@@ -49,6 +52,11 @@ function ScanPage() {
   const [error, setError] = useState('')
   const [scanFocus, setScanFocus] = useState('Frontend Engineer')
 
+  function croul(){
+    SectionFocus.current.focus
+    // console.log(SectionFocus.current.focus);
+    
+  }
   const fileLabel = useMemo(() => {
     if (file) return `${file.name} • ${(file.size / 1024 / 1024).toFixed(2)} MB`
     if (fileName) return fileName
@@ -127,6 +135,7 @@ function ScanPage() {
             </div>
             <p className="mt-4 text-xs uppercase tracking-[0.28em] text-slate-400">{fileLabel}</p>
             <input
+            onClick={croul}
               type="file"
               accept=".pdf,image/*"
               className="hidden"
@@ -135,7 +144,7 @@ function ScanPage() {
           </motion.label>
         </div>
 
-        <div className="rounded-[32px] border border-white bg-white/90 p-6 shadow-[0_30px_80px_-45px_rgba(15,23,42,0.45)]">
+        <div ref={SectionFocus} className="rounded-[32px] border  border-white bg-white/90 p-6 shadow-[0_30px_80px_-45px_rgba(15,23,42,0.45)] block-fit">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm uppercase tracking-[0.28em] text-sky-500">Live recruiter output</p>
@@ -211,7 +220,7 @@ function ScanPage() {
                   </div>
 
                   <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
-                    <div className="flex flex-col items-center gap-5 rounded-[28px] bg-slate-50 p-6">
+                    <div className="flex flex-col items-center gap-5 rounded-[28px] bg-slate-50 p-6 block-fit">
                       <ScoreRing value={result.atsScore} label="ATS Score" />
                       <ScoreRing value={result.jobMatch} label="Job Match" />
                     </div>
@@ -232,7 +241,7 @@ function ScanPage() {
                           )}
                         </div>
                       </div>
-                      <div className="grid gap-4 md:grid-cols-2">
+                      <div className="grid gap-4 md:grid-cols-1">
                         <DetailCard
                           icon={Sparkles}
                           title="Resume strengths"

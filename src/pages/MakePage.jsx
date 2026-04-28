@@ -55,7 +55,7 @@ function MakePage() {
       />
 
       <div className="mt-10 grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
-        <div className="relative overflow-hidden rounded-[36px] border border-slate-200 bg-white p-6 shadow-[0_30px_80px_-45px_rgba(15,23,42,0.35)] sm:p-10">
+        <div className="relative overflow-hidden rounded-[36px] border border-slate-200 bg-white p-6 shadow-[0_30px_80px_-45px_rgba(15,23,42,0.35)] sm:p-10 block-fit">
           <div className="pointer-events-none absolute inset-y-0 left-8 hidden w-px bg-sky-100 sm:block" />
           <div className="mx-auto max-w-3xl space-y-6">
             <div>

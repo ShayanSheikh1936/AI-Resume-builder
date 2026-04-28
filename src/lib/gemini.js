@@ -32,6 +32,11 @@ const formatGeminiError = (error) => {
   if (message.includes('API key expired') || message.includes('API_KEY_INVALID')) {
     return 'The Gemini API key has expired. Create a new key, update VITE_GEMINI_API_KEY in .env, and restart the app.'
   }
+  if (message.includes('Failed to fetch') || message.includes('API_KEY_INVALID')) {
+    return 'Your Internet Connection are not connected please connect your internet and try again'
+  }
+  console.log(message);
+  
 
   return message
 }

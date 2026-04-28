@@ -32,7 +32,7 @@ const workflowSteps = [
   {
     step: '01',
     title: 'Upload and analyze',
-    text: 'Start with a CV upload and let ElevateAI read layout, keywords, role fit, and ATS quality.',
+    text: 'Start with a CV upload and let Optima CV read layout, keywords, role fit, and ATS quality.',
   },
   {
     step: '02',
@@ -73,7 +73,7 @@ function LandingPage() {
             Build a resume that feels precise, modern, and instantly hireable.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-            ElevateAI is a powerfull Ai resume platform that scans, strengthens, and role-matches your resume to target roles with premium dashboard-style insights.
+          Optima CV is a powerfull Ai resume platform that scans, strengthens, and role-matches your resume to target roles with premium dashboard-style insights.
           </p>
 
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -206,7 +206,7 @@ function LandingPage() {
         <div className="grid gap-8 rounded-[32px] border border-sky-100 bg-sky-50/70 p-8 lg:grid-cols-2 lg:p-12">
           <div>
             <SectionHeading
-              eyebrow="Why ElevateAI"
+              eyebrow="Why Optima CV"
               title="Built for candidates who want recruiter-level clarity"
               description="From ATS scoring to role-specific summary generation, the product keeps every decision grounded in signal, presentation quality, and premium interface polish."
             />
@@ -229,7 +229,7 @@ function LandingPage() {
         <div className="overflow-hidden rounded-[36px] border border-slate-200 bg-[linear-gradient(135deg,#0f172a,#0ea5e9)] p-8 text-white lg:p-12">
           <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-sky-100">Ready to elevate</p>
+              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-sky-100">Ready to your job</p>
               <h2 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
                 Give every resume a sharper story, stronger layout, and better role fit.
               </h2>

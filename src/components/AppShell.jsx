@@ -22,7 +22,7 @@ function AppShell({ children }) {
               <Sparkles className="h-5 w-5" />
             </div>
             <div>
-              <p className="text-lg font-semibold tracking-tight">ElevateAI</p>
+              <p className="text-lg font-semibold tracking-tight">Optima CV</p>
               <p className="text-xs text-slate-500">Premium Tech Recruiter Suite</p>
             </div>
           </Link>
@@ -86,12 +86,12 @@ function AppShell({ children }) {
                   <Sparkles className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="text-lg font-semibold tracking-tight text-slate-950">ElevateAI</p>
+                  <p className="text-lg font-semibold tracking-tight text-slate-950">Optima CV</p>
                   <p className="text-xs text-slate-500">Premium Tech Recruiter Suite</p>
                 </div>
               </div>
               <p className="mt-4 max-w-sm text-sm leading-7 text-slate-500">
-                ElevateAI helps resumes look premium, readable, quantified, and role-aligned with a modern SaaS-style product experience.
+              Optima CV helps resumes look premium, readable, quantified, and role-aligned with a modern SaaS-style product experience.
               </p>
             </div>
 

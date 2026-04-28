@@ -22,7 +22,7 @@ const themes = {
 }
 
 function VisualCluster({
-  title = 'ElevateAI Live',
+  title = 'Optima CV Live',
   subtitle = 'Interactive recruiter dashboard',
   chips = ['ATS', 'AI', 'Resume'],
   theme = 'sky',

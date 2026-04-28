@@ -107,15 +107,15 @@ function AgentPage() {
         </div>
 
         <div className="grid gap-6">
-          <div className="rounded-[32px] bg-slate-950 p-6 text-white shadow-[0_30px_80px_-45px_rgba(15,23,42,0.45)]">
+          <div className="rounded-[32px] bg-slate-950 p-6 text-white shadow-[0_30px_80px_-45px_rgba(15,23,42,0.45)] ">
             <p className="text-sm uppercase tracking-[0.28em] text-sky-300">Personalized summary</p>
             <p className="mt-4 text-lg leading-8 text-slate-100">
               {insights?.summary || 'Generate a Gemini role report to see your tailored summary here.'}
             </p>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-2">
-            <div className="rounded-[32px] border border-slate-200 bg-white p-6">
+          <div className="grid gap-6 lg:grid-cols-2 ">
+            <div className="rounded-[32px] border border-slate-200 bg-white p-6 block-fit">
               <p className="text-sm uppercase tracking-[0.28em] text-slate-500">Gap-Filler</p>
               <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-700">
                 {(insights?.gapFiller || []).map((item) => (
@@ -127,9 +127,9 @@ function AgentPage() {
               )}
             </div>
 
-            <div className="rounded-[32px] border border-slate-200 bg-white p-6">
+            <div className="rounded-[32px] border border-slate-200 bg-white p-6 block-fit ">
               <p className="text-sm uppercase tracking-[0.28em] text-slate-500">Skill gap radar</p>
-              <div className="mt-4 h-64">
+              <div className="mt-4 h-64"> {/* h-64 */}
                 <ResponsiveContainer width="100%" height="100%">
                   <RadarChart data={insights?.radar || []}>
                     <PolarGrid />
