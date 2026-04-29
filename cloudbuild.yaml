@@ -1,0 +1,28 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      [
+        'build',
+        '--build-arg',
+        'VITE_GEMINI_API_KEY=${_GEMINI_KEY}',
+        '-t',
+        'gcr.io/$PROJECT_ID/optimacv',
+        '.'
+      ]
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/optimacv']
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    args:
+      [
+        'run',
+        'deploy',
+        'optimacv',
+        '--image',
+        'gcr.io/$PROJECT_ID/optimacv',
+        '--region',
+        'europe-west1',
+        '--platform',
+        'managed',
+        '--allow-unauthenticated'
+      ]
