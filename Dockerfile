@@ -1,37 +1,38 @@
-# syntax=docker/dockerfile:1
-# ^ This line is required for the <<EOF syntax to work!
-
+# -----------------------------
 # Stage 1: Build the React app
-FROM node:20-slim AS build-stage
+# -----------------------------
+FROM node:20-alpine AS builder
+
 WORKDIR /app
 
-# Install dependencies first (better caching)
+# Vite public env vars are injected at build time
+ARG VITE_GEMINI_API_KEY
+ENV VITE_GEMINI_API_KEY=$VITE_GEMINI_API_KEY
+
+# Install dependencies first (better Docker cache usage)
 COPY package*.json ./
-RUN npm install
+RUN npm ci
 
 # Copy source and build
 COPY . .
 RUN npm run build
 
-# Stage 2: Serve with Nginx
-FROM nginx:alpine
+# ---------------------------------
+# Stage 2: Run with static web server
+# ---------------------------------
+FROM node:20-alpine AS runner
 
-# Copy built files from Vite/React (usually 'dist' or 'build')
-COPY --from=build-stage /app/dist /usr/share/nginx/html
+WORKDIR /app
 
-# Create the Nginx config specifically for Cloud Run's port (8080)
-# We quote "EOF" so $uri doesn't get messed up
-COPY <<-"EOF" /etc/nginx/conf.d/default.conf
-server {
-    listen 8080;
-    location / {
-        root /usr/share/nginx/html;
-        index index.html;
-        try_files $uri $uri/ /index.html;
-    }
-}
-EOF
+# Install a lightweight static server
+RUN npm install -g serve
 
+# Copy only built assets from builder stage
+COPY --from=builder /app/dist ./dist
+
+# Cloud Run provides PORT at runtime (default 8080)
+ENV PORT=8080
 EXPOSE 8080
 
-CMD ["nginx", "-g", "daemon off;"]
+# Start server and bind to Cloud Run port
+CMD ["sh", "-c", "serve -s dist -l tcp://0.0.0.0:${PORT}"]
