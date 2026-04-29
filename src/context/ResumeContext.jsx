@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 
-const STORAGE_KEY = 'elevateai_resume_state'
+const STORAGE_KEY = 'optimacv_resume_state'
 
 const ResumeContext = createContext(null)
 

@@ -74,9 +74,8 @@ function AgentPage() {
                     key={role}
                     type="button"
                     onClick={() => toggleRole(role)}
-                    className={`rounded-full px-4 py-2 text-sm transition ${
-                      active ? 'bg-sky-500 text-white shadow-lg' : 'bg-slate-100 text-slate-600'
-                    }`}
+                    className={`rounded-full px-4 py-2 text-sm transition ${active ? 'bg-sky-500 text-white shadow-lg' : 'bg-slate-100 text-slate-600'
+                      }`}
                   >
                     {role}
                   </button>

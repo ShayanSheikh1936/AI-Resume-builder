@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Bot, BriefcaseBusiness, FileScan, Sparkles } from 'lucide-react'
+// import {}
 
 const navItems = [
   { to: '/', label: 'Home', icon: Sparkles },
@@ -15,15 +16,11 @@ function AppShell({ children }) {
   return (
     <div className="min-h-screen bg-[radial-gradient(circle_at_top,#dbeafe_0%,#f8fbff_32%,#ffffff_68%)] text-slate-900">
       <div className="pointer-events-none fixed inset-0 bg-[linear-gradient(to_right,rgba(14,165,233,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(14,165,233,0.08)_1px,transparent_1px)] bg-[size:72px_72px] opacity-40" />
-      <header className="sticky top-0 z-50 border-b border-white/60 bg-white/80 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 border-b border-white/60 bg-white backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <Link to="/" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-500 text-white shadow-[0_20px_60px_-20px_rgba(14,165,233,0.8)]">
-              <Sparkles className="h-5 w-5" />
-            </div>
-            <div>
-              <p className="text-lg font-semibold tracking-tight">Optima CV</p>
-              <p className="text-xs text-slate-500">Premium Tech Recruiter Suite</p>
+          <Link to="/" className="flex items-center justify-center">
+            <div className='m-0 h-15 w-90 flex items-center '>
+            <img className='' src="/optima.svg" alt="" width={250} />
             </div>
           </Link>
 
@@ -80,15 +77,12 @@ function AppShell({ children }) {
       <footer className="relative z-10 border-t border-slate-200/80 bg-white/85 backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <div className="grid gap-10 md:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr]">
-            <div>
+            <div className='flex flex-col justify-self-start '>
               <div className="flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-500 text-white shadow-[0_20px_60px_-20px_rgba(14,165,233,0.8)]">
-                  <Sparkles className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-lg font-semibold tracking-tight text-slate-950">Optima CV</p>
-                  <p className="text-xs text-slate-500">Premium Tech Recruiter Suite</p>
-                </div>
+              <div className='m-0 h-15 w-90 flex items-center justify-self-start'>
+            <img className='' src="/optima.svg" alt="" width={250} />
+            </div>
+                
               </div>
               <p className="mt-4 max-w-sm text-sm leading-7 text-slate-500">
               Optima CV helps resumes look premium, readable, quantified, and role-aligned with a modern SaaS-style product experience.
@@ -126,8 +120,8 @@ function AppShell({ children }) {
           </div>
 
           <div className="mt-10 flex flex-col gap-3 border-t border-slate-200 pt-6 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
-            <p>Built with React, Tailwind, framer-motion, and Gemini-ready workflows.</p>
-            <p>Designed for candidates, recruiters, and premium resume storytelling.</p>
+            <p>&copy; 2023 Optima CV All rights reserved</p>
+            <p>Privacy Policy | Terms of Service | Cookie Policy | Accessibility Statement</p>
           </div>
         </div>
       </footer>
