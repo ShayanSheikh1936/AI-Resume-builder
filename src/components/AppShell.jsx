@@ -120,7 +120,7 @@ function AppShell({ children }) {
           </div>
 
           <div className="mt-10 flex flex-col gap-3 border-t border-slate-200 pt-6 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
-            <p>&copy; 2023 Optima CV All rights reserved</p>
+            <p>&copy; {`${new Date().getFullYear()}`} Optima CV All rights reserved</p>
             <p>Privacy Policy | Terms of Service | Cookie Policy | Accessibility Statement</p>
           </div>
         </div>
